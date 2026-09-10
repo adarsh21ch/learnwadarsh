@@ -27,8 +27,12 @@ under NDA, unpublished scripts, and commercial terms.
  published/log.md            views, shares, saves — feeds back into hooks
 ```
 
-**Rule: no script gets written before RESEARCH.md exists.** The bar for RESEARCH.md is
+**Rule 1: no script gets written before RESEARCH.md exists.** The bar for RESEARCH.md is
 that I can talk about the topic unscripted for 10 minutes. If I can't, it isn't done.
+
+**Rule 2: nothing goes on camera that isn't cleared in FACTCHECK.md** against a primary
+source — see `SOURCING.md`. One wrong number hands a debunk creator a video that
+outperforms mine and follows me forever. A weaker true claim beats a strong shaky one.
 
 ## Folders
 
@@ -36,6 +40,7 @@ that I can talk about the topic unscripted for 10 minutes. If I can't, it isn't 
 |---|---|
 | `PERSONA.md` | Who I am on camera — niche, audience, promise |
 | `VOICE.md` | How I sound. Loaded before every script is written. |
+| `SOURCING.md` | Source tiers and the rules. Read before any claim ships. |
 | `brand/` | Content pillars, audience notes |
 | `deals/` | One folder per media company: terms, deliverables, non-negotiables |
 | `topics/` | Research per topic. The education layer. |
