@@ -1,0 +1,771 @@
+<title>NGO Reel Briefing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#14181f; --ink-2:#3d4654; --ink-3:#6b7686;
+  --paper:#f6f7f9; --surface:#ffffff; --line:#dfe3ea; --line-2:#eceff4;
+  --accent:#17435c; --accent-soft:#e5eef3;
+  --verified:#17694a; --verified-bg:#e4f2eb;
+  --caution:#9a6410; --caution-bg:#fbeedb;
+  --danger:#a52a21; --danger-bg:#fbe6e3;
+  --bar:#9fb6c4; --bar-hi:#17435c;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#e8ecf2; --ink-2:#aab4c2; --ink-3:#7d8798;
+  --paper:#0f1319; --surface:#161c25; --line:#2a323d; --line-2:#212832;
+  --accent:#7fb6d3; --accent-soft:#1a2a36;
+  --verified:#5fc79b; --verified-bg:#142b23;
+  --caution:#e0a94e; --caution-bg:#2e2415;
+  --danger:#f0857a; --danger-bg:#2e1a18;
+  --bar:#3f5665; --bar-hi:#7fb6d3;
+}}
+:root[data-theme="dark"]{
+  --ink:#e8ecf2; --ink-2:#aab4c2; --ink-3:#7d8798;
+  --paper:#0f1319; --surface:#161c25; --line:#2a323d; --line-2:#212832;
+  --accent:#7fb6d3; --accent-soft:#1a2a36;
+  --verified:#5fc79b; --verified-bg:#142b23;
+  --caution:#e0a94e; --caution-bg:#2e2415;
+  --danger:#f0857a; --danger-bg:#2e1a18;
+  --bar:#3f5665; --bar-hi:#7fb6d3;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.62;margin:0}
+.wrap{display:grid;grid-template-columns:236px minmax(0,1fr);gap:0;
+  max-width:1180px;margin:0 auto}
+
+/* ---- sidebar ---- */
+nav{position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;
+  padding:28px 20px 40px;border-right:1px solid var(--line)}
+nav .brand{font-family:var(--display);font-weight:700;font-size:15px;
+  letter-spacing:.02em;line-height:1.3;margin-bottom:4px}
+nav .sub{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+nav .grp{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);margin:20px 0 7px;font-weight:700}
+nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:13.5px;
+  padding:3.5px 0;line-height:1.4}
+nav a:hover{color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- content ---- */
+main{padding:28px 40px 90px;min-width:0}
+header.top{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+h1{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.12;
+  margin:0 0 10px;text-wrap:balance;letter-spacing:-.01em}
+.deck{color:var(--ink-2);font-size:16.5px;margin:0;max-width:62ch}
+.meta{font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  letter-spacing:.04em;margin-top:14px;display:flex;flex-wrap:wrap;gap:14px}
+
+.part{margin-top:52px;padding-top:22px;border-top:1px solid var(--line)}
+.part-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+h2{font-family:var(--display);font-weight:700;font-size:23px;margin:5px 0 6px;
+  line-height:1.2;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:16.5px;
+  margin:30px 0 8px;line-height:1.3;text-wrap:balance}
+h4{font-family:var(--display);font-weight:600;font-size:14px;margin:20px 0 6px}
+p{margin:0 0 13px;max-width:66ch}
+.part>p:first-of-type{color:var(--ink-2)}
+ul{margin:0 0 14px;padding-left:19px;max-width:66ch}
+li{margin-bottom:6px}
+strong{font-weight:600}
+a.ref{color:var(--accent)}
+
+/* ---- verdict chips ---- */
+.v{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;
+  padding:2px 6px;border-radius:3px;white-space:nowrap;vertical-align:1px}
+.v-ok{background:var(--verified-bg);color:var(--verified)}
+.v-warn{background:var(--caution-bg);color:var(--caution)}
+.v-no{background:var(--danger-bg);color:var(--danger)}
+
+/* ---- point list ---- */
+.pts{list-style:none;padding:0;margin:0 0 6px;max-width:none}
+.pts li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;
+  align-items:start;padding:11px 0;border-bottom:1px solid var(--line-2);margin:0}
+.pid{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--accent);
+  padding-top:3px}
+.ptxt{min-width:0}
+.ptxt .said{display:block;margin-bottom:3px}
+.ptxt .mean{display:block;color:var(--ink-2);font-size:14.5px}
+.mean::before{content:"→ ";color:var(--ink-3)}
+
+/* ---- callout ---- */
+.call{border-left:3px solid var(--accent);background:var(--surface);
+  padding:14px 18px;margin:20px 0;border-radius:0 4px 4px 0}
+.call.warn{border-left-color:var(--danger)}
+.call.good{border-left-color:var(--verified)}
+.call h4{margin-top:0}
+.call p:last-child{margin-bottom:0}
+
+/* ---- tables ---- */
+.scroll{overflow-x:auto;margin:14px 0 20px;border:1px solid var(--line);
+  border-radius:5px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);
+  color:var(--ink-3);font-weight:700;white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;
+  font-size:13px;white-space:nowrap}
+tr.hi td{background:var(--accent-soft);font-weight:600}
+
+/* ---- flow diagram ---- */
+.flow{display:flex;flex-direction:column;gap:0;margin:18px 0 24px;max-width:520px}
+.fbox{background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:9px 14px;font-size:14px;line-height:1.4}
+.fbox b{font-family:var(--mono);font-size:10.5px;color:var(--accent);
+  display:block;letter-spacing:.06em;margin-bottom:1px}
+.farr{width:1px;height:16px;background:var(--line);margin:0 0 0 26px;position:relative}
+.farr::after{content:"";position:absolute;bottom:0;left:-3px;
+  border-left:3.5px solid transparent;border-right:3.5px solid transparent;
+  border-top:5px solid var(--line)}
+.fbox.end{border-color:var(--accent);border-width:2px}
+
+/* ---- compare blocks ---- */
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 22px}
+.cmp>div{background:var(--surface);border:1px solid var(--line);
+  border-radius:5px;padding:14px 16px}
+.cmp .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.cmp .big{font-family:var(--display);font-weight:700;font-size:27px;
+  line-height:1;font-variant-numeric:tabular-nums}
+.cmp .note{font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.4}
+.swatch{display:inline-block;width:9px;height:9px;border-radius:2px;
+  margin-right:5px;vertical-align:0}
+.sw-red{background:var(--danger)} .sw-green{background:var(--verified)}
+
+/* ---- bar chart ---- */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:5px;
+  padding:18px 18px 14px;margin:16px 0 8px}
+.chart .ctitle{font-family:var(--display);font-weight:600;font-size:14.5px;
+  margin-bottom:3px}
+.chart .csub{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.04em;margin-bottom:15px}
+.row{display:grid;grid-template-columns:82px minmax(0,1fr) 58px;gap:10px;
+  align-items:center;margin-bottom:7px}
+.row .cty{font-size:12.5px;color:var(--ink-2);text-align:right;line-height:1.2}
+.track{height:15px;background:var(--line-2);border-radius:0 3px 3px 0}
+.fill{height:15px;background:var(--bar);border-radius:0 3px 3px 0}
+.row .val{font-family:var(--mono);font-size:11.5px;font-variant-numeric:tabular-nums;
+  color:var(--ink-2)}
+.row.me .cty,.row.me .val{color:var(--ink);font-weight:700}
+.row.me .fill{background:var(--bar-hi)}
+
+/* ---- script storyboard ---- */
+.shot{display:grid;grid-template-columns:66px minmax(0,1fr);gap:16px;
+  padding:15px 0;border-bottom:1px solid var(--line-2)}
+.tc{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);
+  letter-spacing:.02em;padding-top:2px}
+.tc span{display:block;font-weight:400;color:var(--ink-3);font-size:9.5px;
+  letter-spacing:.09em;text-transform:uppercase;margin-top:3px}
+.say{font-size:17px;line-height:1.5;margin:0 0 8px;max-width:58ch}
+.say em{font-style:normal;background:var(--accent-soft);padding:0 3px;
+  border-radius:2px;font-weight:600}
+.screen{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:6px 10px;display:inline-block;line-height:1.45}
+.screen b{color:var(--accent);font-weight:700}
+
+.hooks{display:grid;gap:11px;margin:16px 0 24px}
+.hook{background:var(--surface);border:1px solid var(--line);border-radius:5px;
+  padding:14px 16px}
+.hook.pick{border-color:var(--accent);border-width:2px}
+.hook .htag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.hook .htag b{color:var(--accent)}
+.hook .hline{font-size:16.5px;line-height:1.42;margin:0 0 7px}
+.hook .hwhy{font-size:13.5px;color:var(--ink-2);margin:0;line-height:1.45}
+
+.foot{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.7}
+
+@media(max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  nav{position:static;max-height:none;border-right:none;
+    border-bottom:1px solid var(--line);padding:18px 20px 14px}
+  nav .grp{margin-top:14px}
+  main{padding:22px 20px 70px}
+  h1{font-size:25px}
+  .pts li{grid-template-columns:34px minmax(0,1fr);gap:9px}
+  .pts li .v{grid-column:2;justify-self:start;margin-top:4px}
+  .shot{grid-template-columns:1fr;gap:6px}
+  .tc{display:flex;gap:8px;align-items:baseline}
+  .tc span{margin-top:0}
+  .row{grid-template-columns:70px minmax(0,1fr) 52px;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+<nav>
+  <div class="brand">NGO Reel Briefing</div>
+  <div class="sub">Indian Matrix · Sept 2026</div>
+
+  <div class="grp">Part 1 · Material</div>
+  <a href="#sent">Kya bheja hai</a>
+  <a href="#logic">Unka argument</a>
+  <a href="#points">Saare 28 points</a>
+  <a href="#tables">Dono tables</a>
+
+  <div class="grp">Part 2 · Issue</div>
+  <a href="#layers">NGO ke 3 layers</a>
+  <a href="#money">Paisa kahan se</a>
+  <a href="#fcra">FCRA + 2026 Bill</a>
+  <a href="#world">Duniya kya karti hai</a>
+  <a href="#crackdown">Crackdown</a>
+  <a href="#denominator">Denominator problem</a>
+  <a href="#percapita">Per-capita sach</a>
+  <a href="#bothsides">Dono taraf</a>
+  <a href="#vocab">Shabdkosh</a>
+
+  <div class="grp">Part 3 · Reel</div>
+  <a href="#hooks">Hooks</a>
+  <a href="#script">Script</a>
+  <a href="#never">Kabhi mat bolna</a>
+</nav>
+
+<main>
+<header class="top">
+  <h1>Har ek startup pe 2.5 NGO — asli kahani kya hai</h1>
+  <p class="deck">The Indian Matrix ne jo material diya, uska poora content, uske upar
+  independent research, aur ek reel script jo unki narrative bhi serve kare aur
+  tumhe debunk-proof bhi rakhe.</p>
+  <div class="meta">
+    <span>PAID PARTNERSHIP — DISCLOSE</span>
+    <span>28 POINTS + 2 TABLES</span>
+    <span>SPLIT-SCREEN TALKING HEAD · ~60s</span>
+  </div>
+</header>
+
+<!-- ===================== PART 1 ===================== -->
+<section class="part">
+  <div class="part-tag">Part 1</div>
+  <h2>Material mein exactly kya hai</h2>
+  <p>Ye wo sab hai jo agency ne bheja. Kuch chhoda nahi, kuch jodha nahi.
+  Har point ke neeche uska seedha matlab likha hai.</p>
+
+  <h3 id="sent">Kya-kya bheja hai</h3>
+  <ul>
+    <li><strong>PDF</strong> — <em>"Too Many NGOs: A Threat"</em>, 5 pages. 3 pages likha hua (28 points), 2 pages infographic.</li>
+    <li><strong>Naksha</strong> — har state ka NGO/startup ratio.</li>
+    <li><strong>X thread</strong> — <strong>part 1 of 6</strong>. Baaki 5 abhi nahi mile.</li>
+    <li><strong>Substack article</strong> — <span class="v v-no">NOT RECEIVED</span> Ye environment substack.com ko block karta hai. Text paste karna padega.</li>
+  </ul>
+
+  <h3 id="logic">Unka poora argument, ek chain mein</h3>
+  <div class="flow">
+    <div class="fbox"><b>Shuruaat</b>1 startup pe 2.5 NGO</div>
+    <div class="farr"></div>
+    <div class="fbox"><b>Iska matlab</b>Institutional energy "banane" se hatkar "rokne" ki taraf gayi</div>
+    <div class="farr"></div>
+    <div class="fbox"><b>Kahan sabse zyada</b>Border aur Northeast — Sikkim 14.1, Manipur 13.6</div>
+    <div class="farr"></div>
+    <div class="fbox"><b>Kyun khatarnak</b>Videshi funding + infra projects rukna = economic + security nuksaan</div>
+    <div class="farr"></div>
+    <div class="fbox end"><b>Isliye hal</b>Sakht FCRA — asli maalik pakdo, paisa track karo</div>
+  </div>
+
+  <h3 id="points">Saare 28 points, section by section</h3>
+
+  <h4>I · Macro Metrics — jhukav kidhar hai</h4>
+  <ul class="pts">
+    <li><span class="pid">I.A</span><span class="ptxt"><span class="said">Har 1 DPIIT-registered startup pe ~2.5 NGO Darpan pe registered.</span><span class="mean">Do sarkari lists ko divide kiya. Kehte hain India "dhandhe" se zyada "awaaz" ko pasand kar raha hai.</span></span><span class="v v-warn">FRAME</span></li>
+    <li><span class="pid">I.B</span><span class="ptxt"><span class="said">"Ease of Doing Business" naapte hain, "Ease of Stalling Growth" nahi.</span><span class="mean">Pehla ek asli world ranking hai. Doosra inhone khud banaya hai — koi official index nahi.</span></span><span class="v v-warn">THEIR TERM</span></li>
+    <li><span class="pid">I.C</span><span class="ptxt"><span class="said">6 lakh registered, par estimate 37 lakh. G20 ke ek-tihai NGO India mein.</span><span class="mean">Source nahi diya. CBI ne Supreme Court mein 31 lakh kaha tha, 37 nahi.</span></span><span class="v v-no">NO SOURCE</span></li>
+    <li><span class="pid">I.D</span><span class="ptxt"><span class="said">Zyadatar untracked hain, financial statement file nahi karte.</span><span class="mean">Ye sach hai — CBI ne khud Supreme Court ko bataya. <strong>Inki sabse mazboot baat.</strong></span></span><span class="v v-ok">TRUE</span></li>
+    <li><span class="pid">I.E</span><span class="ptxt"><span class="said">Ye "middlemen" ka ecosystem hai, banane walon ka nahi.</span><span class="mean">Bichauliye — jo khud kuch nahi banate. Ye raay hai, I.A pe tiki hui.</span></span><span class="v v-warn">OPINION</span></li>
+  </ul>
+
+  <h4>II · Naksha — hara aur laal</h4>
+  <ul class="pts">
+    <li><span class="pid">II.A</span><span class="ptxt"><span class="said">Telangana 1.6, Karnataka 1.8, Gujarat 1.9, Maharashtra 2.0 — average se neeche.</span><span class="mean">National average 2.5 hai. Ye sach hai.</span></span><span class="v v-ok">TRUE</span></li>
+    <li><span class="pid">II.B</span><span class="ptxt"><span class="said">Sikkim 14.1, Manipur 13.6 — "staggering" ratios.</span><span class="mean">Arithmetic sahi hai. Par Sikkim mein startup sirf 20 hain — isliye ratio bada dikhta hai.</span></span><span class="v v-warn">MISLEADING</span></li>
+    <li><span class="pid">II.C</span><span class="ptxt"><span class="said">Ladakh 11.2, Arunachal 9.6 — security experts ke liye "Red Buzzer event".</span><span class="mean">Khatre ki ghanti. Ye unki raay hai, kisi report ki finding nahi.</span></span><span class="v v-warn">OPINION</span></li>
+    <li><span class="pid">II.D</span><span class="ptxt"><span class="said">Red states "cycle of dependency" mein phanse hain.</span><span class="mean">Nirbharta ka chakkar — apne pairon pe khade hone ki jagah hamesha sahare pe.</span></span><span class="v v-warn">CONTESTED</span></li>
+    <li><span class="pid">II.E</span><span class="ptxt"><span class="said">Ilaaka stable ho toh NGO kam hone chahiye — yahan ulta hai.</span><span class="mean">Ye unhone maan liya hai. Kisi study se sabit nahi kiya.</span></span><span class="v v-warn">ASSUMED</span></li>
+  </ul>
+
+  <h4>III · Economic Cost — nuksaan kitna</h4>
+  <ul class="pts">
+    <li><span class="pid">III.A</span><span class="ptxt"><span class="said">IB report: videshi funding wale NGO protests GDP growth se 2–3% kha jaate hain.</span><span class="mean">Report asli hai (June 2014). Par IB ne kabhi nahi bataya ye 2–3% nikala kaise. EPW ne usi mahine dhajjiyan udayi thi. <strong>Hamesha "IB ki report ne claim kiya" bolna.</strong></span></span><span class="v v-warn">ATTRIBUTE</span></li>
+    <li><span class="pid">III.B</span><span class="ptxt"><span class="said">Rukawat hatt jaaye toh 7% growth 10% ho sakti hai.</span><span class="mean"><strong>Ye IB report mein hai hi nahi.</strong> Inhone khud jodi hai. Ek click mein pakda jaayega.</span></span><span class="v v-no">INVENTED</span></li>
+    <li><span class="pid">III.C</span><span class="ptxt"><span class="said">Greenpeace pe aarop ki usne jaanbujh ke India ki GDP girayi.</span><span class="mean">Aarop hai, court mein hai, Greenpeace kuch round jeeta bhi hai. Kisi aur ka aarop doharana bhi kanoon mein "chhapna" mana jaata hai.</span></span><span class="v v-no">LEGAL RISK</span></li>
+    <li><span class="pid">III.D</span><span class="ptxt"><span class="said">IB ne sectors naam liye: coal mines, nuclear plants, mega-ports, bade dams.</span><span class="mean">Ye report ka asli content hai. Bol sakte ho.</span></span><span class="v v-ok">TRUE</span></li>
+    <li><span class="pid">III.E</span><span class="ptxt"><span class="said">Coal/iron rokne se India ko mehnga maal import karna padta hai.</span><span class="mean">Tark theek hai par koi aankda nahi diya.</span></span><span class="v v-warn">NO FIGURE</span></li>
+  </ul>
+
+  <h4>IV · National Security — "naye tarike ki ladai"</h4>
+  <ul class="pts">
+    <li><span class="pid">IV.A</span><span class="ptxt"><span class="said">Border ki sadak-tunnel-pul fauj ke liye zaroori; NGO ke mukadme unhe rokte hain.</span><span class="mean">Koi source nahi, koi case ka naam nahi.</span></span><span class="v v-no">NO SOURCE</span></li>
+    <li><span class="pid">IV.B</span><span class="ptxt"><span class="said">Sensitive zones mein activism "warfare ka naya roop" hai.</span><span class="mean">Asymmetric warfare = tedhi ladai. Seedha na ladke, loktantra ke apne kanoon se kaam rokna.</span></span><span class="v v-warn">RHETORIC</span></li>
+    <li><span class="pid">IV.C</span><span class="ptxt"><span class="said">Kuch NGO networks mass religious conversion karate hain, jisse andar darar banti hai.</span><span class="mean"><strong>Ye line bilkul nahi bolni.</strong> Koi study nahi, koi naam nahi, koi number nahi. Instagram ki policy ye nahi dekhti ki tum kisi aur ko quote kar rahe ho.</span></span><span class="v v-no">RED LINE</span></li>
+    <li><span class="pid">IV.D</span><span class="ptxt"><span class="said">NE China, Myanmar, Bangladesh se laga "nazuk darwaza" hai.</span><span class="mean">Bhugol sahi hai. Usse nikala natija unki raay hai.</span></span><span class="v v-warn">MIXED</span></li>
+    <li><span class="pid">IV.E</span><span class="ptxt"><span class="said">Punjab mein koi bhi organised andolan security breach ban sakta hai.</span><span class="mean">Atkal hai — "ban sakta hai" keh rahe hain, "bana" nahi.</span></span><span class="v v-warn">SPECULATIVE</span></li>
+  </ul>
+
+  <h4>V · Case Studies — asli udaharan</h4>
+  <ul class="pts">
+    <li><span class="pid">V.A</span><span class="ptxt"><span class="said">2012 mein PM Manmohan Singh ne US-based NGOs ko Kudankulam rokne ka dosh diya.</span><span class="mean"><em>Science</em> magazine ko interview, Feb 2012. <strong>Poore deck ki sabse mazboot baat</strong> — aur ye Congress ke PM the, isliye "ek party ka agenda" wala jawab mar jaata hai.</span></span><span class="v v-ok">STRONGEST</span></li>
+    <li><span class="pid">V.B</span><span class="ptxt"><span class="said">Income Tax ki jaanch — Environics Trust, paise dekar protest.</span><span class="mean">IT department ne Supreme Court mein <em>claim</em> kiya. FCRA aur 12A cancel ho chuke, par <strong>SC ne final order pe rok lagayi hai</strong>. Bolo: "IT department ka claim hai…"</span></span><span class="v v-warn">SUB JUDICE</span></li>
+  </ul>
+
+  <h4>VI · Nichod</h4>
+  <ul class="pts">
+    <li><span class="pid">VI.A</span><span class="ptxt"><span class="said">NGO pe sawal na naya hai na kisi ek party ka — Manmohan Singh se aaj tak.</span><span class="mean"><strong>Inka sabse samajhdaar tark.</strong> Poori bahes ko "partywaad" hone se bacha leta hai.</span></span><span class="v v-ok">TRUE</span></li>
+    <li><span class="pid">VI.B</span><span class="ptxt"><span class="said">"Factory lagana, paid protest karane se aasaan hona chahiye."</span><span class="mean">Inki thesis line. Bolne mein zabardast — reel mein jaayegi.</span></span><span class="v v-warn">THESIS</span></li>
+    <li><span class="pid">VI.C</span><span class="ptxt"><span class="said">Naksha ki laal battiyan hari karni hain.</span><span class="mean">Naukri dene wali sanskriti chuno, virodh wali nahi.</span></span><span class="v v-warn">FRAME</span></li>
+  </ul>
+
+  <h4>VII · Hal — FCRA</h4>
+  <ul class="pts">
+    <li><span class="pid">VII.A</span><span class="ptxt"><span class="said">Sakht FCRA nigrani, taaki "Ultimate Beneficial Owners" saamne aayein.</span><span class="mean">UBO = asli maalik. Kaagaz pe naam kisi aur ka, par paisa asal mein kiska aur chala kaun raha hai.</span></span><span class="v v-ok">POSITION</span></li>
+    <li><span class="pid">VII.B</span><span class="ptxt"><span class="said">FCRA "foreign-funded social engineering aur forced conversion" ke khilaf deewar.</span><span class="mean">Pehla hissa theek. <strong>"Forced conversion" wala hissa hatega</strong> — wahi IV.C wali baat hai.</span></span><span class="v v-no">HALF OUT</span></li>
+    <li><span class="pid">VII.C</span><span class="ptxt"><span class="said">Policy chuni hui sansad banaye, videshi donor nahi.</span><span class="mean"><strong>Supreme Court ne 2022 mein theek yahi kaha</strong> — <em>Noel Harper</em> case. Ye inki report mein nahi hai.</span></span><span class="v v-ok">COURT-BACKED</span></li>
+  </ul>
+
+  <h3 id="tables">Dono tables — asli numbers</h3>
+  <p>Ye PDF ke page 4 aur 5 pe hain. Text nahi, image hain — isliye pehli baar mein miss ho gaye the.</p>
+
+  <h4>Page 4 — state-wise</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>State</th><th style="text-align:right">Active NGOs</th><th style="text-align:right">Startups</th><th style="text-align:right">Ratio</th></tr></thead>
+    <tbody>
+      <tr><td>Sikkim</td><td class="n">282</td><td class="n">20</td><td class="n">14.1</td></tr>
+      <tr><td>Manipur</td><td class="n">4,053</td><td class="n">299</td><td class="n">13.6</td></tr>
+      <tr><td>Ladakh</td><td class="n">280</td><td class="n">25</td><td class="n">11.2</td></tr>
+      <tr><td>Arunachal Pradesh</td><td class="n">986</td><td class="n">103</td><td class="n">9.6</td></tr>
+      <tr><td>Meghalaya</td><td class="n">860</td><td class="n">109</td><td class="n">7.9</td></tr>
+      <tr><td>Nagaland</td><td class="n">948</td><td class="n">132</td><td class="n">7.2</td></tr>
+      <tr><td>Mizoram</td><td class="n">498</td><td class="n">79</td><td class="n">6.3</td></tr>
+      <tr class="hi"><td>Lakshadweep</td><td class="n">17</td><td class="n">3</td><td class="n">5.7</td></tr>
+      <tr><td>Punjab</td><td class="n">14,021</td><td class="n">2,784</td><td class="n">5.0</td></tr>
+      <tr><td>West Bengal</td><td class="n">38,933</td><td class="n">7,941</td><td class="n">4.9</td></tr>
+      <tr><td>Tripura</td><td class="n">1,116</td><td class="n">243</td><td class="n">4.6</td></tr>
+      <tr><td>Andhra Pradesh</td><td class="n">21,790</td><td class="n">4,842</td><td class="n">4.5</td></tr>
+      <tr><td>Uttarakhand</td><td class="n">7,757</td><td class="n">2,007</td><td class="n">3.9</td></tr>
+      <tr><td>Rajasthan</td><td class="n">33,876</td><td class="n">8,963</td><td class="n">3.8</td></tr>
+      <tr><td>Puducherry</td><td class="n">963</td><td class="n">267</td><td class="n">3.6</td></tr>
+      <tr><td>Jharkhand</td><td class="n">7,976</td><td class="n">2,372</td><td class="n">3.4</td></tr>
+      <tr><td>Assam</td><td class="n">8,014</td><td class="n">2,403</td><td class="n">3.3</td></tr>
+      <tr><td>Himachal Pradesh</td><td class="n">2,922</td><td class="n">920</td><td class="n">3.2</td></tr>
+      <tr><td>Uttar Pradesh</td><td class="n">76,720</td><td class="n">24,243</td><td class="n">3.2</td></tr>
+      <tr><td>Bihar</td><td class="n">17,906</td><td class="n">5,673</td><td class="n">3.2</td></tr>
+      <tr><td>Madhya Pradesh</td><td class="n">25,617</td><td class="n">8,416</td><td class="n">3.0</td></tr>
+      <tr><td>Odisha</td><td class="n">12,605</td><td class="n">4,205</td><td class="n">3.0</td></tr>
+      <tr><td>Tamil Nadu</td><td class="n">45,684</td><td class="n">16,083</td><td class="n">2.8</td></tr>
+      <tr><td>Jammu &amp; Kashmir</td><td class="n">4,366</td><td class="n">1,663</td><td class="n">2.6</td></tr>
+      <tr><td>Chhattisgarh</td><td class="n">6,579</td><td class="n">2,626</td><td class="n">2.5</td></tr>
+      <tr class="hi"><td>INDIA</td><td class="n">6,04,060</td><td class="n">2,45,432</td><td class="n">2.5</td></tr>
+      <tr><td>Andaman &amp; Nicobar</td><td class="n">267</td><td class="n">112</td><td class="n">2.4</td></tr>
+      <tr><td>DNHDD</td><td class="n">233</td><td class="n">104</td><td class="n">2.2</td></tr>
+      <tr><td>Maharashtra</td><td class="n">86,320</td><td class="n">42,393</td><td class="n">2.0</td></tr>
+      <tr><td>Goa</td><td class="n">1,743</td><td class="n">871</td><td class="n">2.0</td></tr>
+      <tr><td>Gujarat</td><td class="n">40,494</td><td class="n">21,519</td><td class="n">1.9</td></tr>
+      <tr><td>Kerala</td><td class="n">17,027</td><td class="n">9,278</td><td class="n">1.8</td></tr>
+      <tr><td>Karnataka</td><td class="n">42,979</td><td class="n">24,544</td><td class="n">1.8</td></tr>
+      <tr><td>Haryana</td><td class="n">21,355</td><td class="n">12,773</td><td class="n">1.7</td></tr>
+      <tr class="hi"><td>Delhi</td><td class="n">36,032</td><td class="n">22,721</td><td class="n">1.6</td></tr>
+      <tr><td>Telangana</td><td class="n">21,749</td><td class="n">13,942</td><td class="n">1.6</td></tr>
+      <tr><td>Chandigarh</td><td class="n">1,092</td><td class="n">754</td><td class="n">1.4</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>Page 5 — G20 comparison</h4>
+  <p>Headline: <em>"~1/3 of all NGOs in G20 countries are located in India."</em>
+  Total estimated G20 NGOs: <strong>1,26,06,242</strong>. India: <strong>37,00,000 = 29.35%</strong>.
+  Uske baad France aur USA (15,00,000 each), Brazil 8,79,326, China 8,78,700, Germany 6,15,759,
+  UK 1,85,296, Japan 48,988, South Korea 14,016.</p>
+  <p>Chart ke apne footer mein likha hai: <em>"Figures are approximate"</em>, aur source
+  <em>"respective official data, estimates &amp; verified databases"</em> — koi specific naam nahi.</p>
+</section>
+
+<!-- ===================== PART 2 ===================== -->
+<section class="part">
+  <div class="part-tag">Part 2</div>
+  <h2>Issue ko poora samjho</h2>
+  <p>Ab wo sab jo report mein nahi hai — par jo tumhe pata hona chahiye taaki tum kisi bhi
+  comment ka jawab de sako.</p>
+
+  <h3 id="layers">"NGO" ek cheez nahi hai — teen layers hain</h3>
+  <p>Ye wo baat hai jo Instagram pe koi theek se nahi bolta. Isse tum expert lagoge.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Layer</th><th>Kya hai</th><th>Kaun control karta hai</th><th>Kitne</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Registration</strong></td><td>Society (1860) · Trust (1882) · Section 8 Company (2013)</td><td>State registrar / RoC</td><td class="n">~31 lakh</td></tr>
+      <tr><td><strong>2. Tax status</strong></td><td>12A = sanstha ka tax maaf · 80G = donor ko chhoot</td><td>Income Tax Dept</td><td class="n">—</td></tr>
+      <tr><td><strong>3. Videshi paisa</strong></td><td>FCRA licence</td><td>Home Ministry</td><td class="n">16,301</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call">
+    <h4>Ye samajh liya toh aadha kaam ho gaya</h4>
+    <p>"31 lakh NGO" <strong>Layer 1</strong> hai. "Videshi funding wale NGO project rok rahe hain"
+    <strong>Layer 3</strong> hai — jinke paas valid FCRA hai, wo sirf <strong>16,301</strong> the
+    (July 2023). Ye do alag aabadiyan hain, lagbhag <strong>190 guna</strong> ka farq.
+    Report in dono ke beech phisalti rehti hai.</p>
+  </div>
+
+  <h3 id="money">Paisa kahan se aata hai</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Source</th><th>Kitna</th><th>Kanoon</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CSR</strong></td><td>₹34,909 crore (FY24), 27,188 companies</td><td>Companies Act s.135 — 2% of net profit</td></tr>
+      <tr><td>Sarkari grants</td><td>Bada, schemes ke through</td><td>Ministry budgets</td></tr>
+      <tr><td>Domestic donations</td><td>Sabse bada, par kabhi napa nahi gaya</td><td>12A / 80G</td></tr>
+      <tr><td><strong>Videshi contribution</strong></td><td>Ye wala hissa vivadit hai</td><td>FCRA</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call good">
+    <h4>NGO Darpan registration itna kyun badha — asli wajah</h4>
+    <p>Form CSR-1 ne CSR ka paisa lene ke liye Darpan ID ko lagbhag zaroori bana diya.
+    Matlab curve <strong>ek kaagazi niyam</strong> ko dikha raha hai, kisi activism ke tsunami ko nahi.
+    NGO badhe nahi — unhe register karne ko kaha gaya.</p>
+  </div>
+
+  <h3 id="fcra">FCRA — aur abhi Parliament mein chal raha bill</h3>
+  <ul>
+    <li><strong>1976</strong> — Emergency ke dauran bana, videshi paise ki chinta se.</li>
+    <li><strong>2010</strong> — naya Act, purane ki jagah.</li>
+    <li><strong>2020 Amendment</strong> — sabse bada badlav:
+      <ul>
+        <li><strong>Sub-granting band</strong> — ek FCRA wala doosre ko paisa nahi de sakta. Isne wo model khatam kar diya jisme ek badi NGO sau chhoti NGOs ko funding deti thi.</li>
+        <li>Admin kharcha <strong>50% se ghatakar 20%</strong>.</li>
+        <li>Sara videshi paisa sirf <strong>SBI, New Delhi Main Branch</strong> mein.</li>
+        <li>Sab padadhikariyon ka <strong>Aadhaar</strong> zaroori.</li>
+      </ul>
+    </li>
+    <li><strong>April 2022</strong> — Supreme Court ne ye sab barkarar rakha, <em>Noel Harper v. Union of India</em>: <strong>"videsh se paisa lena koi fundamental right nahi hai."</strong></li>
+  </ul>
+  <div class="call">
+    <h4>Ye abhi ki khabar hai — aur report mein nahi hai</h4>
+    <p><strong>FCRA (Amendment) Bill, 2026 — 25 March 2026 ko Lok Sabha mein introduce hua.</strong>
+    Iske teen bade points:</p>
+    <ul style="margin-bottom:0">
+      <li>Ek <strong>Designated Authority</strong> banega jo cancel ho chuki NGO ki sampatti apne kabze mein le sakta hai.</li>
+      <li>Renewal ke liye pichhle 2 saal mein kam se kam <strong>₹10 lakh</strong> videshi contribution kharch kiya hona chahiye.</li>
+      <li>Certificate pe <strong>exact purpose aur exact states</strong> likhne honge.</li>
+    </ul>
+    <p style="margin-top:10px;margin-bottom:0">Report kehti hai <em>"Need of the hour: FCRA."</em>
+    Tum bol sakte ho — <strong>"wo bill abhi sansad mein hai."</strong> Yahi "abhi kyun" wala
+    element hai, aur wahi sabse zyada share karata hai.</p>
+  </div>
+
+  <h3 id="world">Duniya ke doosre desh kya karte hain</h3>
+  <p>Ye tumhe unse aage le jaata hai — kyunki report ye comparison karti hi nahi.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Desh</th><th>Kanoon</th><th>Tareeka</th></tr></thead>
+    <tbody>
+      <tr><td>USA</td><td>FARA, 1938</td><td>Sirf videshi paisa lena kaafi nahi. Tabhi lagta hai jab tum kisi videshi principal ke <em>kehne ya control mein</em> kaam kar rahe ho. Ye <strong>disclosure</strong> ka kanoon hai.</td></tr>
+      <tr><td>Russia</td><td>Foreign agent law, 2012</td><td>Thoda sa bhi videshi paisa mila toh maan liya jaata hai ki videshi control hai. Bahut vyapak.</td></tr>
+      <tr><td><strong>India</strong></td><td>FCRA</td><td>Ye <strong>licence</strong> ka kanoon hai — sarkar tay karti hai kaun videshi paisa <em>le sakta hai</em>.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Ye farq yaad rakhna: <strong>FARA = batao tum kiske liye kaam kar rahe ho. FCRA = pehle
+  ijazat lo.</strong> Dono transparency ke naam pe hain, par kaam alag karte hain. Ye ek line
+  bol dogey toh log samajh jaayenge ki tumne padha hai.</p>
+
+  <h3 id="crackdown">Crackdown — numbers aur naam</h3>
+  <p>Pichhle 10 saal mein <strong>20,693</strong> FCRA licence cancel hue. July 2023 tak
+  <strong>16,301</strong> valid the.</p>
+  <p>Naam: Greenpeace India (2015) · Compassion International (2017) · Amnesty India
+  (2020 mein kaam band) · <strong>Missionaries of Charity</strong> (Dec 2021 mein renewal
+  mana, Jan 2022 mein bahal) · Oxfam India (2022) · Centre for Policy Research (2024) ·
+  Sonam Wangchuk ki sanstha (Sept 2025).</p>
+  <p>Is list ko dhyan se dekho. Kuch pe paisa ghumane ka aarop hai. Kuch research institutions
+  hain. Ek Mother Teresa ki sanstha hai. <strong>Isiliye "FCRA cancel hua" ka matlab "dosh
+  sabit hua" nahi hota</strong> — aur isiliye dono taraf ke log isi list ko apna sabooot batate hain.</p>
+
+  <h3 id="denominator">Sabse badi kamzori — naksha kya naap raha hai</h3>
+  <p>Ye maine inki hi table se nikala hai. Agar tum sirf ek cheez yaad rakho, ye rakhna.</p>
+  <div class="cmp">
+    <div>
+      <div class="lbl"><span class="swatch sw-red"></span>Sikkim — dark red</div>
+      <div class="big">282</div>
+      <div class="note">Active NGOs<br>Startups: <strong>20</strong><br>Ratio 14.1</div>
+    </div>
+    <div>
+      <div class="lbl"><span class="swatch sw-green"></span>Delhi — green</div>
+      <div class="big">36,032</div>
+      <div class="note">Active NGOs<br>Startups: <strong>22,721</strong><br>Ratio 1.6</div>
+    </div>
+    <div>
+      <div class="lbl"><span class="swatch sw-red"></span>Lakshadweep — red</div>
+      <div class="big">17</div>
+      <div class="note">Active NGOs<br>Startups: <strong>3</strong><br>"Top 11 sensitive border area"</div>
+    </div>
+  </div>
+  <div class="call warn">
+    <h4>Delhi mein Sikkim se 128 guna zyada NGO hain — phir bhi Delhi hara hai</h4>
+    <p>Kyunki laal rang <strong>"zyada NGO" nahi dikhata — "kam startup" dikhata hai.</strong>
+    Lakshadweep mein poore desh ke sabse kam NGO hain (17), phir bhi wo laal hai, kyunki
+    startup sirf 3 hain.</p>
+    <p style="margin-bottom:0">Iska matlab report bekaar hai? Nahi. Iska matlab hai ki
+    <strong>naksha wala hissa kamzor hai</strong> — aur agar tum sirf naksha lekar chale,
+    wahi tumhara sabse bada risk hai.</p>
+  </div>
+
+  <h3 id="percapita">G20 chart ka doosra pehlu</h3>
+  <p>Chart absolute numbers dikhata hai. India ki aabadi 140 crore hai — zyada log matlab
+  zyada sanstha. Unhi ke numbers ko aabadi se divide karo toh tasveer palat jaati hai.</p>
+  <div class="chart">
+    <div class="ctitle">NGOs per 10 lakh log — Indian Matrix ke apne G20 numbers se</div>
+    <div class="csub">India 19 mein se 9th · unke chart ke aankde ÷ aabadi</div>
+    <div class="row"><div class="cty">France</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="val">22,059</div></div>
+    <div class="row"><div class="cty">Germany</div><div class="track"><div class="fill" style="width:33.2%"></div></div><div class="val">7,330</div></div>
+    <div class="row"><div class="cty">Italy</div><div class="track"><div class="fill" style="width:28.3%"></div></div><div class="val">6,244</div></div>
+    <div class="row"><div class="cty">South Africa</div><div class="track"><div class="fill" style="width:21.2%"></div></div><div class="val">4,672</div></div>
+    <div class="row"><div class="cty">USA</div><div class="track"><div class="fill" style="width:20.3%"></div></div><div class="val">4,478</div></div>
+    <div class="row"><div class="cty">Brazil</div><div class="track"><div class="fill" style="width:18.5%"></div></div><div class="val">4,071</div></div>
+    <div class="row"><div class="cty">Argentina</div><div class="track"><div class="fill" style="width:16.8%"></div></div><div class="val">3,697</div></div>
+    <div class="row"><div class="cty">UK</div><div class="track"><div class="fill" style="width:12.2%"></div></div><div class="val">2,685</div></div>
+    <div class="row me"><div class="cty">India</div><div class="track"><div class="fill" style="width:11.7%"></div></div><div class="val">2,591</div></div>
+    <div class="row"><div class="cty">Canada</div><div class="track"><div class="fill" style="width:9.7%"></div></div><div class="val">2,134</div></div>
+    <div class="row"><div class="cty">China</div><div class="track"><div class="fill" style="width:2.8%"></div></div><div class="val">623</div></div>
+    <div class="row"><div class="cty">Japan</div><div class="track"><div class="fill" style="width:1.8%"></div></div><div class="val">395</div></div>
+  </div>
+  <p><strong>France mein per person India se 8.5 guna zyada NGO hain.</strong> Ye maine bahar
+  se nahi laya — inke apne chart se nikala hai. Koi bhi calculator kholega toh yahi milega.</p>
+  <p>Ek aur cheez: India ka 37 lakh ek <em>anumaan</em> hai jisme unregistered bhi shamil hain.
+  UK ka 1,85,296 <em>registered charities</em> ka count hai. Do alag cheezein compare ho rahi hain.</p>
+  <div class="call good">
+    <h4>Toh camera pe kya bolna</h4>
+    <p>❌ <em>"India mein duniya ke ek-tihai NGO hain."</em><br>
+    ✅ <em>"Report ke mutabik, <strong>absolute number</strong> mein India sabse aage hai —
+    37 lakh ka estimate, G20 ka 29%."</em></p>
+    <p style="margin-bottom:0">Aur agar himmat hai toh khud hi bol do:
+    <em>"Haan, India ki aabadi sabse zyada hai, toh absolute number bada hoga hi. Asli sawaal
+    ye hai ki <strong>hisaab kaun deta hai.</strong>"</em> — ye line tumhe debunk-proof kar
+    deti hai aur report ke sabse mazboot point pe le aati hai.</p>
+  </div>
+
+  <h3 id="bothsides">Dono taraf ka sach</h3>
+  <p>Ye dono ek saath sach hain. Dono pata hon toh koi comment tumhe ghera nahi sakta.</p>
+  <div class="cmp">
+    <div>
+      <div class="lbl">Sakhti ke haq mein</div>
+      <div class="note" style="margin-top:2px">
+        Zyadatar registered NGO hisaab file nahi karte — CBI ne khud SC ko bataya ·
+        Paisa ghumane ke asli case hain, Environics abhi court mein hai ·
+        Videshi paise se domestic policy prabhavit hona ek jaayaz chinta hai, har bada desh
+        isko regulate karta hai · Supreme Court ne 2022 mein framework barkarar rakha
+      </div>
+    </div>
+    <div>
+      <div class="lbl">Zyadti ke khilaf</div>
+      <div class="note" style="margin-top:2px">
+        2020 ka sub-granting ban chhoti grassroots NGOs pe sabse zyada laga — unke paas
+        apna FCRA nahi tha · Nuksaan seva dene walon ka hua, activists ka nahi ·
+        Enforcement chunindaa lagta hai — research institutions bahut hain list mein ·
+        Blanket niyam shell aur hospital mein farq nahi kar paate · Kai case mein courts ne
+        rahat di hai
+      </div>
+    </div>
+  </div>
+
+  <h4>Northeast mein NGO zyada kyun hain — asli wajah</h4>
+  <ul>
+    <li>Sarkari machinery kamzor hai aur bhugol mushkil — isliye <strong>schemes jaanbujh kar NGOs ke through</strong> chalayi jaati hain</li>
+    <li>Church aur community networks society ke roop mein registered hain — wahan ye mainstream
+      social infrastructure hai, koi kinare ka group nahi</li>
+    <li>Sixth Schedule ki autonomous councils aur paramparik sansthaein bhi society ban ke registered hoti hain</li>
+    <li>Manipur mein ~740 NGO per million — desh mein sabse zyada per-capita</li>
+    <li>Aur yahi India ke sabse kam industrialised rajya hain — <strong>isiliye startup kam hain</strong></li>
+  </ul>
+
+  <h4>Project delay ke baare mein kya sach hai</h4>
+  <p>2–3% GDP wala aankda kamzor hai. Par <strong>specific delays asli hain</strong> aur unke
+  naam liye ja sakte hain:</p>
+  <ul>
+    <li><strong>POSCO</strong> — ₹52,000 crore ka Odisha steel project, 2017 mein chhod diya, ek dashak ke virodh ke baad</li>
+    <li><strong>Vedanta / Niyamgiri</strong> — Supreme Court ne 2013 mein gram sabha ki manzoori zaroori ki; sabhaon ne mana kar diya</li>
+    <li><strong>Kudankulam</strong> — saalon ka delay</li>
+  </ul>
+  <p><em>"Project rukte hain aur uska paisa lagta hai"</em> — ye bola ja sakta hai, naam ke saath.
+  <em>"NGO India ko 2–3% GDP ka nuksaan karte hain"</em> — ye nahi. Yahi farq hai jahan koi
+  tumhe test karega.</p>
+
+  <h3 id="vocab">Shabdkosh</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Shabd</th><th>Matlab</th></tr></thead>
+    <tbody>
+      <tr><td><strong>DPIIT</strong></td><td>Sarkari department jo startups ko certificate deta hai. Apply karna padta hai, 10 saal baad khatam ho jaata hai</td></tr>
+      <tr><td><strong>NGO Darpan</strong></td><td>NITI Aayog ka portal. Sarkari/CSR paisa lene ke liye ID chahiye</td></tr>
+      <tr><td><strong>Udyam</strong></td><td>MSME registration portal — <strong>7.83 crore</strong> enterprises. Ye India ke asli businesses ka count hai</td></tr>
+      <tr><td><strong>12A / 80G</strong></td><td>Sanstha ka tax maaf / donor ko tax chhoot</td></tr>
+      <tr><td><strong>FCRA</strong></td><td>Videsh se paisa lene ka licence, Home Ministry se</td></tr>
+      <tr><td><strong>Sub-granting</strong></td><td>Videshi paisa aage kisi aur ko dena — 2020 se band</td></tr>
+      <tr><td><strong>UBO</strong></td><td>Ultimate Beneficial Owner — asli maalik, kaagaz ke naam ke peeche</td></tr>
+      <tr><td><strong>Section 8</strong></td><td>Munafa na kamane wali company, Companies Act 2013</td></tr>
+      <tr><td><strong>Sixth Schedule</strong></td><td>NE ke aadivasi swashasit parishad ilaake</td></tr>
+      <tr><td><strong>Sub judice</strong></td><td>Maamla abhi court mein hai — faisla nahi hua</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===================== PART 3 ===================== -->
+<section class="part">
+  <div class="part-tag">Part 3</div>
+  <h2>Reel</h2>
+  <p>Split-screen talking head. Neeche chehra, upar visual. ~60 second.
+  Agency ko unki poori narrative milti hai, aur tum kahin bhi pakde nahi jaate.</p>
+
+  <h3 id="hooks">Hooks</h3>
+  <div class="hooks">
+    <div class="hook pick">
+      <div class="htag"><b>Recommended</b> · Contradiction</div>
+      <p class="hline">"Ye Modi government ne nahi kaha tha.<br>2012 mein Manmohan Singh ne kaha tha."</p>
+      <p class="hwhy">Sabse bada surprise. Pehle 3 second mein hi "ye toh propaganda hai" wala
+      reaction mar jaata hai — matlab wo aadhi audience bhi rukti hai jo warna scroll kar deti.</p>
+    </div>
+    <div class="hook">
+      <div class="htag">Puzzle</div>
+      <p class="hline">"Sikkim mein 282 NGO hain. Delhi mein 36,000.<br>Toh naksha Sikkim ko laal kyun dikha raha hai?"</p>
+      <p class="hwhy">Asli paheli hai. Dimaag jawab dhoondhne lagta hai — aur jawab reel ke andar hai.</p>
+    </div>
+    <div class="hook">
+      <div class="htag">Newsjack — abhi ka</div>
+      <p class="hline">"Abhi sansad mein ek bill hai jo tay karega ki<br>videsh se kaun paisa le sakta hai."</p>
+      <p class="hwhy">FCRA Bill 25 March 2026 ko aaya hai. "Abhi kyun" wala element sabse zyada share karata hai.</p>
+    </div>
+    <div class="hook">
+      <div class="htag">Reframe — sabse safe</div>
+      <p class="hline">"Sawaal ye nahi ki India mein NGO kitne hain.<br>Sawaal ye hai ki hisaab kitne dete hain."</p>
+      <p class="hwhy">Seedha bulletproof zameen pe — CBI ka data, koi debunk nahi.</p>
+    </div>
+    <div class="hook">
+      <div class="htag">Cross-niche transplant · Finance</div>
+      <p class="hline">"Tumhare paas 10 bank account hon aur tum sirf<br>1 ka statement dekho — yahi ho raha hai."</p>
+      <p class="hwhy">Finance ka "tumhara paisa kahan ja raha hai" wala dar — sabse universal
+      emotion, aur yahan seedha fit hota hai.</p>
+    </div>
+  </div>
+
+  <h3 id="script">Script — shot by shot</h3>
+
+  <div class="shot">
+    <div class="tc">0:00–0:05<span>Hook</span></div>
+    <div>
+      <p class="say">"Ye Modi government ne nahi kaha tha.<br><em>2012 mein Manmohan Singh ne kaha tha.</em>"</p>
+      <div class="screen"><b>UPAR:</b> Science magazine, Feb 2012 — headline screenshot</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:05–0:13<span>Agitate 1</span></div>
+    <div>
+      <p class="say">"Unhone Science magazine ko interview diya. Aur seedha bola —
+      America ke NGO humara Kudankulam nuclear plant rok rahe hain."</p>
+      <div class="screen"><b>UPAR:</b> Kudankulam plant B-roll → quote text zoom</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:13–0:22<span>Agitate 2</span></div>
+    <div>
+      <p class="say">"Matlab ye kisi ek party ka agenda nahi hai. Ye sawaal 13 saal purana hai.
+      Aur ab ek nayi report ne iske numbers nikal diye hain."</p>
+      <div class="screen"><b>UPAR:</b> The Indian Matrix report cover → @indianmatrix</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:22–0:32<span>Agitate 3</span></div>
+    <div>
+      <p class="say">"India mein <em>6 lakh 4 hazar</em> NGO registered hain.
+      Startups? <em>2 lakh 45 hazar.</em><br>Yaani har ek startup pe 2.5 NGO."</p>
+      <div class="screen"><b>UPAR:</b> "2.5 NGOs for every 1 Startup" infographic</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:32–0:45<span>Re-hook</span></div>
+    <div>
+      <p class="say">"Par ek second. Naksha dekho — Sikkim laal hai, Delhi hara hai.<br>
+      Ab suno: Sikkim mein <em>282</em> NGO hain. Delhi mein <em>36,000</em>.<br>
+      Toh Sikkim laal kyun?"</p>
+      <div class="screen"><b>UPAR:</b> naksha → side-by-side <b>SIKKIM 282</b> vs <b>DELHI 36,032</b></div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:45–0:57<span>Payoff</span></div>
+    <div>
+      <p class="say">"Kyunki Sikkim mein startup sirf <em>20</em> hain.<br>
+      Laal rang zyada NGO nahi dikha raha — <em>kam factory</em> dikha raha hai.<br>
+      Border ke states mein NGO ki bharmaar nahi hai. Wahan dhandha hi nahi lag raha."</p>
+      <div class="screen"><b>UPAR:</b> <b>SIKKIM — NGO 282 | STARTUP 20</b> bade text mein</div>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="tc">0:57–1:00<span>Close</span></div>
+    <div>
+      <p class="say">"Isiliye report ka asli point yahi hai —<br>
+      <em>factory lagana, protest karane se aasaan hona chahiye.</em>"</p>
+      <div class="screen"><b>UPAR:</b> laal naksha → hara naksha transition</div>
+    </div>
+  </div>
+
+  <h4>Agar 90 second chahiye</h4>
+  <p>0:45 wale payoff ke baad ye daal do — ye reel ko news bana deta hai:</p>
+  <p class="say" style="border-left:3px solid var(--accent);padding-left:14px">
+  "Aur ye sirf baaton ki baat nahi hai. <em>25 March 2026</em> ko sansad mein ek naya
+  FCRA bill aaya hai. Usme likha hai ki jis NGO ka licence cancel hoga, uski property
+  sarkar apne kabze mein le sakti hai."</p>
+
+  <div class="call good">
+    <h4>Ye script kyun kaam karti hai</h4>
+    <p><strong>Agency ko puri narrative milti hai —</strong> Manmohan Singh (V.A), 2.5 ratio (I.A),
+    naksha aur border states (II), "red lights turn green" (VI.C), aur unki apni thesis line (VI.B).</p>
+    <p><strong>Aur tum debunk-proof ho jaate ho —</strong> denominator wali baat tumne khud bol di.
+    Ab koi reaction video kya add karega? Aur wo baat unke khilaf nahi jaati; ulta unka point
+    mazboot karti hai: <em>border states mein factory lagni chahiye</em> — wahi toh report maang rahi hai.</p>
+    <p style="margin-bottom:0"><strong>Ek bhi khatarnak claim nahi hai.</strong> Koi Greenpeace nahi,
+    koi 7%→10% nahi, koi conversion line nahi, koi 37 lakh nahi. Har number ya toh inki apni
+    table se hai, ya CBI/Science se.</p>
+  </div>
+
+  <h4>Shot notes</h4>
+  <ul>
+    <li>0:00 pe koi warm-up nahi. Camera on, seedha pehli line.</li>
+    <li>0:32 pe tone badlo — dheema karo, "par ek second" pe ruko. Wahi retention ka point hai.</li>
+    <li>Har number upar screen pe likha ho. Bola hua number bhool jaata hai, likha hua nahi.</li>
+    <li>Paid partnership label ON.</li>
+  </ul>
+
+  <h3 id="never">Kabhi mat bolna</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Claim</th><th>Kyun nahi</th></tr></thead>
+    <tbody>
+      <tr><td>"7% growth 10% ho sakti thi"</td><td>IB report mein hai hi nahi. Inhone khud jodi hai — ek click mein pakda jaayega</td></tr>
+      <tr><td>"Greenpeace ne GDP girayi"</td><td>Aarop hai, court mein hai. Doosre ka aarop doharana bhi "chhapna" mana jaata hai</td></tr>
+      <tr><td>"37 lakh NGO / G20 ka ek-tihai"</td><td>Koi source nahi. CBI ne 31 lakh kaha tha. Aur per-capita pe ulta pad jaata hai</td></tr>
+      <tr><td>Dharm parivartan wali line</td><td>Koi study, koi naam, koi number nahi. Instagram ki policy quote karne se nahi bachati</td></tr>
+      <tr><td>"NGO litigation fauj ki sadkein rokti hai"</td><td>Koi source nahi, koi case ka naam nahi</td></tr>
+      <tr><td>"IB ne sabit kiya"</td><td>IB ne <em>claim</em> kiya. Method kabhi publish nahi hua. Hamesha attribute karo</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call warn">
+    <h4>Agency se ye 3 cheezein poochho</h4>
+    <p style="margin-bottom:0">1. <strong>37 lakh ka source kya hai?</strong> Agar hai toh claim upgrade ho jaayega ·
+    2. <strong>Thread ke parts 2–6</strong> bhejo ·
+    3. <strong>Substack article ka text</strong> — ye environment substack block karta hai</p>
+  </div>
+</section>
+
+<div class="foot">
+  SOURCES — PIB (DPIIT startups, Udyam 7.83 cr) · CBI affidavit to Supreme Court ·
+  EPW critique of the 2014 IB report · Science magazine interview, Feb 2012 ·
+  Noel Harper v. Union of India, SC 2022 · PRS India (FCRA Amendment Bill, 2026) ·
+  ICNL (FARA / FCRA comparison) · agency's own page-4 and page-5 tables<br>
+  GAPS — Substack article and ngodarpan.gov.in are blocked from this environment;
+  X thread parts 2–6 not received.
+</div>
+</main>
+</div>
