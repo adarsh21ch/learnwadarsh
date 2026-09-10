@@ -53,7 +53,7 @@ Neeche: chehra. Upar: visual. Har line ke saath upar kya chalega, wo likha hai.
 **PAYOFF — narrative yahan palat kar unke haq mein aa jaata hai** · 45–57s
 > "Kyunki Sikkim mein startup sirf **20** hain.
 > Laal rang zyada NGO nahi dikha raha — **kam factory** dikha raha hai.
-> Border ke states mein NGO ki bhармार nahi hai. Wahan dhandha hi nahi lag raha."
+> Border ke states mein NGO ki bharmaar nahi hai. Wahan dhandha hi nahi lag raha."
 
 📺 UPAR: `SIKKIM — NGO 282 | STARTUP 20` bade text mein
 
