@@ -1,94 +1,133 @@
-# Script — NGO/Startup reel
+# Script v2 — NGO/Startup reel · ~100 seconds
 
-Format: Split screen talking head · ~60s · Hinglish · **Sponsored — disclosure ON**
-Hook: #1 (Contradiction)
+Format: Split-screen talking head · Hinglish · **Sponsored — disclosure ON**
+Rule: `00-handling-rules.md` — narrative ke saath, kabhi khilaf nahi.
 
-Neeche: chehra. Upar: visual. Har line ke saath upar kya chalega, wo likha hai.
+Neeche chehra, upar visual. Har number upar likha hona chahiye.
 
 ---
 
-**HOOK** · 0–5s
+## HOOK · 0:00–0:06
 > "Ye Modi government ne nahi kaha tha.
-> 2012 mein — Manmohan Singh ne kaha tha."
+> **2012 mein Manmohan Singh ne kaha tha.**"
 
-📺 UPAR: *Science* magazine Feb 2012 ka headline screenshot
+📺 *Science* magazine, Feb 2012 — headline screenshot
 
 ---
 
-**AGITATE 1 — dard ka naam lo** · 5–13s
+## BLOCK 1 — Ye kisi ek party ki baat nahi · 0:06–0:18
 > "Unhone Science magazine ko interview diya. Aur seedha bola —
-> America ke NGO humara Kudankulam nuclear plant rok rahe hain."
+> America ke NGO humara Kudankulam nuclear plant rok rahe hain.
+> Ek Congress ke Prime Minister ne. Terah saal pehle."
 
-📺 UPAR: Kudankulam plant B-roll → quote text zoom-in
-
----
-
-**AGITATE 2 — galat dhaarna todo** · 13–22s
-> "Matlab ye kisi ek party ka agenda nahi hai.
-> Ye sawaal 13 saal purana hai. Aur ab ek nayi report ne iske numbers nikal diye hain."
-
-📺 UPAR: The Indian Matrix report cover → @indianmatrix handle
+📺 Kudankulam B-roll → quote zoom → "FEB 2012" stamp
 
 ---
 
-**AGITATE 3 — keemat dikhao** · 22–32s
-> "India mein 6 lakh 4 hazar NGO registered hain.
-> Startups? 2 lakh 45 hazar.
-> Yaani har ek startup pe 2.5 NGO."
+## BLOCK 2 — Paimana · 0:18–0:38
+> "Ab 2026 ke numbers dekho.
+> India mein **6 lakh 4 hazar** NGO registered hain.
+> DPIIT-registered startups? **2 lakh 45 hazar.**
+> Yaani har ek startup pe **2.5 NGO.**
+>
+> Aur ye toh sirf registered hain. **Report ka estimate hai** ki asli sankhya
+> **37 lakh** tak ho sakti hai — absolute number mein G20 ka **29 percent.**
+>
+> **CBI ne khud Supreme Court ko bataya tha** — 31 lakh se zyada registered societies hain.
+> Aur unme se sirf ek chhota hissa apna hisaab file karta hai."
 
-📺 UPAR: "2.5 NGOs for every 1 Startup" wala infographic
-
----
-
-**RE-HOOK — yahin log scroll karte hain, yahin rokna hai** · 32–45s
-> "Par ek second. Naksha dekho —
-> Sikkim laal hai. Delhi hara hai.
-> Ab suno: Sikkim mein 282 NGO hain. Delhi mein **36,000**.
-> Toh Sikkim laal kyun?"
-
-📺 UPAR: Naksha → phir side-by-side: `SIKKIM 282` vs `DELHI 36,032`
+📺 "2.5 NGOs for every 1 Startup" infographic → G20 chart → CBI/SC headline
+🔑 Teeno numbers screen pe likhe hon
 
 ---
 
-**PAYOFF — narrative yahan palat kar unke haq mein aa jaata hai** · 45–57s
-> "Kyunki Sikkim mein startup sirf **20** hain.
-> Laal rang zyada NGO nahi dikha raha — **kam factory** dikha raha hai.
-> Border ke states mein NGO ki bharmaar nahi hai. Wahan dhandha hi nahi lag raha."
+## BLOCK 3 — Naksha · 0:38–0:56
+> "Ab naksha dekho. Jahan factory hai, wahan ratio kam hai —
+> Telangana **1.6**, Karnataka **1.8**, Gujarat **1.9**, Maharashtra **2.0**.
+>
+> Aur border pe?
+> Sikkim **14.1**. Manipur **13.6**. Ladakh **11.2**. Arunachal **9.6**.
+>
+> Sikkim mein 282 NGO hain — aur **20** startups.
+> **Ye ratio kya keh raha hai?**"
 
-📺 UPAR: `SIKKIM — NGO 282 | STARTUP 20` bade text mein
-
----
-
-**CLOSING LINE** · 57–60s
-> "Isiliye report ka asli point yahi hai —
-> factory lagana, protest karane se aasaan hona chahiye."
-
-📺 UPAR: laal naksha → hara naksha transition
+📺 Naksha, hare states highlight → phir laal states ek-ek karke → SIKKIM 282 / 20
+🔑 **Sawaal pe ruko. Jawab mat do.** Darshak khud nikaalega — aur wahi share karega.
 
 ---
 
-## Ye script kaam kyun karti hai
+## BLOCK 4 — Keemat · 0:56–1:14
+> "**Intelligence Bureau ki 2014 report ne claim kiya tha** ki videshi funding wale
+> NGO protests India ki GDP growth se **2 se 3 percent** kha jaate hain.
+>
+> Aur usne sectors bhi naam liye the — **coal mines, nuclear plants, mega ports, bade dams.**
+>
+> Environics Trust ke maamle mein **Income Tax department ka claim hai** ki protest ke liye
+> paise diye gaye. Uska FCRA cancel ho chuka hai — **maamla abhi Supreme Court mein hai.**"
 
-**Agency ko puri narrative milti hai:**
-Manmohan Singh (V.A) ✓ · 2.5 ratio (I.A) ✓ · naksha aur border states (II) ✓ ·
-"red lights turn green" (VI.C) ✓ · unki thesis line (VI.B) ✓
+📺 IB report headline → sector icons → ThePrint/Environics headline
+🔑 "claim kiya tha" aur "maamla court mein hai" — ye shabd chhodna mat
 
-**Aur tum debunk-proof ho jaate ho:**
-Denominator wali baat tumne khud bol di — ab koi reaction video kya add karega?
-Aur ye baat unke khilaf nahi jaati. Ulta unka hi point mazboot karti hai:
-*"border states mein factory lagni chahiye."* Wahi toh report maang rahi hai.
+---
 
-**Ek bhi ❌ claim nahi hai.** Koi Greenpeace nahi, koi 7%→10% nahi, koi conversion line nahi,
-koi 37 lakh nahi. Sab kuch ya toh inki apni table se hai ya CBI/Science se.
+## BLOCK 5 — Report ka sabse tez idea · 1:14–1:26
+> "Report mein ek line hai jo mujhe sabse zyada lagi.
+>
+> Hum **'Ease of Doing Business'** naapte hain — dhandha shuru karna kitna aasaan hai.
+> Par hum ye kabhi nahi naapte ki **kisi kaam ko rokna kitna aasaan hai.**
+>
+> Report isko kehti hai — **'Ease of Stalling Growth'.**"
 
-## Shot notes
-- 0–5s: koi warm-up nahi. Camera on, seedha line.
-- 32s pe tone badlo — dheema karo, "par ek second" pe ruko. Wahi retention ka point hai.
-- Numbers hamesha upar screen pe likhe hon — bola hua number bhool jaata hai, likha hua nahi.
+📺 Do headings side-by-side: `EASE OF DOING BUSINESS` ✅ / `EASE OF STALLING GROWTH` ❓
+🔑 Ye reel ka sabse quotable moment hai. Yahin se log clip banayenge.
+
+---
+
+## BLOCK 6 — Hal, aur abhi ki khabar · 1:26–1:40
+> "Toh hal kya hai? Report kehti hai — **FCRA.**
+> Videshi paisa kahan se aa raha hai, aur uska **asli maalik kaun hai** — ye pata hona chahiye.
+>
+> Aur ye sirf ek report ki raay nahi hai.
+> **Supreme Court ne 2022 mein kaha tha — videsh se paisa lena koi fundamental right nahi hai.**
+> Aur **25 March 2026 ko** ek naya FCRA bill sansad mein aaya hai.
+>
+> Sawaal ye hai — hum **builders** ka desh ban rahe hain, ya **gatekeepers** ka?"
+
+📺 FCRA logo → SC building + "Noel Harper, 2022" → PRS bill page "25 MARCH 2026"
+→ last frame: `BUILDERS?` / `GATEKEEPERS?`
+
+---
+
+## CLOSING (agar chahiye) · 1:40–1:45
+> "Report ki apni line — **factory lagana, protest karane se aasaan hona chahiye.**"
+
+---
+
+# Kya-kya use hua
+
+**Unke 28 mein se 14 points** is script mein hain:
+I.A ✓ · I.C ✓ · I.D ✓ · II.A ✓ · II.B ✓ · II.C ✓ · III.A ✓ · III.D ✓ · V.A ✓ · V.B ✓ ·
+VI.A ✓ · VI.B ✓ · VII.A ✓ · VII.C ✓ — aur "Ease of Stalling Growth" (I.B) ka poora treatment.
+
+**Plus 2 cheezein jo unke paas nahi thi** — Supreme Court ka *Noel Harper* faisla,
+aur 2026 ka FCRA bill. Dono unki baat ko **mazboot** karte hain.
+
+# Kya nahi hai — aur kyun chhoda
+
+| Chhoda | Wajah |
+|---|---|
+| 7% → 10% growth | IB report mein hai hi nahi — ek click mein pakde jaoge |
+| Greenpeace | Aarop hai, court mein hai. Doharana bhi "chhapna" hai |
+| Dharm parivartan | Koi source nahi. Platform strike ka risk |
+| Troop roads / litigation | Koi source nahi, koi case ka naam nahi |
+
+**Chaaro chhup-chaap chhode gaye hain — kahin bhi contradict nahi kiya gaya.**
+Unke bina bhi narrative poori hai.
+
+# Shot notes
+- 0:00 pe koi warm-up nahi. Camera on, seedhi pehli line.
+- **0:56 pe sabse zaroori** — "Ye ratio kya keh raha hai?" bolke **2 second ruko.**
+  Wo pause hi retention hai.
+- Block 5 (Ease of Stalling Growth) — dheema bolo. Ye clip-worthy moment hai.
+- Har number upar screen pe. Bola hua number bhool jaata hai, likha hua nahi.
 - Paid partnership label ON.
-
-## Agar 90s version chahiye
-32s wale re-hook ke baad ye daal do:
-> "Aur ek aur cheez — CBI ne khud Supreme Court ko bataya tha ki India mein 31 lakh se
-> zyada registered societies hain. Unme se sirf ek chhota hissa apna hisaab file karta hai.
-> 31 lakh sangathan — aur kisi ko nahi pata kitne zinda hain."
